@@ -1,42 +1,52 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
-import { ThemeToggle } from "@/components/theme-toggle"
-import { Menu, X } from "lucide-react"
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { Menu, X } from "lucide-react";
 
 export function Navigation() {
-  const [activeSection, setActiveSection] = useState("home")
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState("home");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "roadmap", "experience", "projects", "contact"]
-      const scrollPosition = window.scrollY + 100
+      const sections = [
+        "home",
+        "about",
+        "roadmap",
+        "experience",
+        "projects",
+        "contact",
+      ];
+      const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
-        const element = document.getElementById(section)
+        const element = document.getElementById(section);
         if (element) {
-          const { offsetTop, offsetHeight } = element
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section)
-            break
+          const { offsetTop, offsetHeight } = element;
+          if (
+            scrollPosition >= offsetTop &&
+            scrollPosition < offsetTop + offsetHeight
+          ) {
+            setActiveSection(section);
+            break;
           }
         }
       }
-    }
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
+    const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-      setMobileMenuOpen(false)
+      element.scrollIntoView({ behavior: "smooth" });
+      setMobileMenuOpen(false);
     }
-  }
+  };
 
   const navItems = [
     { id: "home", label: "Home" },
@@ -44,8 +54,10 @@ export function Navigation() {
     { id: "roadmap", label: "Roadmap" },
     { id: "experience", label: "Experience" },
     { id: "projects", label: "Projects" },
+    { id: "Blog", label: "Blog" },
+    { id: "gallery", label: "Gallery" },
     { id: "contact", label: "Contact" },
-  ]
+  ];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
@@ -53,7 +65,7 @@ export function Navigation() {
         <div className="flex items-center justify-between">
           <button
             onClick={() => scrollToSection("home")}
-            className="text-lg font-semibold text-foreground hover:text-primary transition-colors"
+            className="text-lg cursor-pointer font-semibold text-foreground hover:text-primary transition-colors"
           >
             Olabode Micheal
           </button>
@@ -65,7 +77,11 @@ export function Navigation() {
                 variant="ghost"
                 size="sm"
                 onClick={() => scrollToSection(item.id)}
-                className={activeSection === item.id ? "text-primary" : "text-muted-foreground"}
+                className={`cursor-pointer,font-bold ${
+                  activeSection === item.id
+                    ? "text-[green]"
+                    : "text-muted-foreground"
+                }`}
               >
                 {item.label}
               </Button>
@@ -76,8 +92,16 @@ export function Navigation() {
           {/* Mobile menu */}
           <div className="md:hidden flex items-center gap-2">
             <ThemeToggle />
-            <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-              {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              {mobileMenuOpen ? (
+                <X className="h-5 w-5" />
+              ) : (
+                <Menu className="h-5 w-5" />
+              )}
             </Button>
           </div>
         </div>
@@ -98,5 +122,5 @@ export function Navigation() {
         )}
       </div>
     </nav>
-  )
+  );
 }
