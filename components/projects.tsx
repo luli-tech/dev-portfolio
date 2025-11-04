@@ -11,7 +11,7 @@ const projects = [
     title: "E-Commerce Platform",
     description:
       "a nextjs powered frontend designed for law school scholarship application ",
-    technologies: ["Next.js", "TypeScript,tailwindcss"],
+    technologies: ["Next.js", "TypeScript", "tailwindcss"],
     github: "https://github.com/luli-tech/law-lift-portal",
     demo: "https://law-lift-portal.vercel.app/",
     preview: "https://law-lift-portal.vercel.app/",
