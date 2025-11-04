@@ -1,31 +1,31 @@
-"use client"
+"use client";
 
-import { Card } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { ExternalLink, Github, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { useState } from "react"
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { ExternalLink, Github, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 const projects = [
   {
     title: "E-Commerce Platform",
     description:
-      "A full-featured e-commerce platform with product management, shopping cart, and payment integration. Built with modern web technologies for optimal performance.",
-    technologies: ["Next.js", "TypeScript", "Stripe", "PostgreSQL"],
-    github: "https://github.com",
-    demo: "https://example.com",
-    preview: "https://example.com",
-    screenshot: "/modern-ecommerce-platform.png",
+      "a nextjs powered frontend designed for law school scholarship application ",
+    technologies: ["Next.js", "TypeScript,tailwindcss"],
+    github: "https://github.com/luli-tech/law-lift-portal",
+    demo: "https://law-lift-portal.vercel.app/",
+    preview: "https://law-lift-portal.vercel.app/",
+    screenshot: "/reginal-aziza.png",
   },
   {
-    title: "Task Management App",
+    title: "website builder Site",
     description:
       "Collaborative task management application with real-time updates, team workspaces, and project tracking. Features drag-and-drop interface and notifications.",
     technologies: ["React", "Node.js", "Socket.io", "MongoDB"],
     github: "https://github.com",
-    demo: "https://example.com",
-    preview: "https://example.com",
-    screenshot: "/task-management-dashboard-kanban.jpg",
+    demo: "https://test-two-beige-83.vercel.app/",
+    preview: "https://test-two-beige-83.vercel.app/",
+    screenshot: "/skystudio.png",
   },
   {
     title: "Weather Dashboard",
@@ -47,16 +47,21 @@ const projects = [
     preview: "https://example.com",
     screenshot: "/portfolio-cms-admin-interface.jpg",
   },
-]
+];
 
 export function Projects() {
-  const [hoveredProject, setHoveredProject] = useState<number | null>(null)
-  const [previewProject, setPreviewProject] = useState<number | null>(null)
+  const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+  const [previewProject, setPreviewProject] = useState<number | null>(null);
 
   return (
-    <section id="projects" className="min-h-screen flex items-center justify-center px-6 py-20">
+    <section
+      id="projects"
+      className="min-h-screen flex items-center justify-center px-6 py-20"
+    >
       <div className="container mx-auto max-w-6xl">
-        <h2 className="text-4xl md:text-5xl font-bold mb-12 text-balance">Featured Projects</h2>
+        <h2 className="text-4xl md:text-5xl font-bold mb-12 text-balance">
+          Featured Projects
+        </h2>
         <div className="grid md:grid-cols-2 gap-6">
           {projects.map((project, index) => (
             <Card
@@ -78,23 +83,39 @@ export function Projects() {
                   }`}
                 >
                   <Button variant="secondary" size="sm" asChild>
-                    <a href={project.github} target="_blank" rel="noopener noreferrer">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <Github className="h-4 w-4 mr-2" />
                       Code
                     </a>
                   </Button>
-                  <Button variant="secondary" size="sm" onClick={() => setPreviewProject(index)}>
+                  <Button
+                    variant="secondary"
+                    size="sm"
+                    onClick={() => setPreviewProject(index)}
+                  >
                     <ExternalLink className="h-4 w-4 mr-2" />
                     Preview
                   </Button>
                 </div>
               </div>
               <div className="p-6 flex flex-col">
-                <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">{project.title}</h3>
-                <p className="text-muted-foreground mb-4 leading-relaxed flex-grow">{project.description}</p>
+                <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
+                  {project.title}
+                </h3>
+                <p className="text-muted-foreground mb-4 leading-relaxed flex-grow">
+                  {project.description}
+                </p>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech) => (
-                    <Badge key={tech} variant="secondary" className="bg-primary/10 text-primary border-primary/20">
+                    <Badge
+                      key={tech}
+                      variant="secondary"
+                      className="bg-primary/10 text-primary border-primary/20"
+                    >
                       {tech}
                     </Badge>
                   ))}
@@ -109,8 +130,14 @@ export function Projects() {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
           <Card className="w-full max-w-4xl h-[80vh] flex flex-col border-2 shadow-2xl">
             <div className="flex items-center justify-between p-4 border-b">
-              <h3 className="text-xl font-bold">{projects[previewProject].title} - Live Preview</h3>
-              <Button variant="ghost" size="sm" onClick={() => setPreviewProject(null)}>
+              <h3 className="text-xl font-bold">
+                {projects[previewProject].title} - Live Preview
+              </h3>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setPreviewProject(null)}
+              >
                 <X className="h-4 w-4" />
               </Button>
             </div>
@@ -126,7 +153,11 @@ export function Projects() {
                 Close
               </Button>
               <Button asChild>
-                <a href={projects[previewProject].demo} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={projects[previewProject].demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <ExternalLink className="h-4 w-4 mr-2" />
                   Open Full Site
                 </a>
@@ -136,5 +167,5 @@ export function Projects() {
         </div>
       )}
     </section>
-  )
+  );
 }
