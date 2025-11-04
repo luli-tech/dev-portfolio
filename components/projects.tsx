@@ -20,22 +20,22 @@ const projects = [
   {
     title: "website builder Site",
     description:
-      "Collaborative task management application with real-time updates, team workspaces, and project tracking. Features drag-and-drop interface and notifications.",
-    technologies: ["React", "Node.js", "Socket.io", "MongoDB"],
+      "Collaborative website builder application with text editor built with monaco, team workspaces, Features drag-and-drop interface and notifications.",
+    technologies: ["React", "Node.js", "Socket.io", "MongoDB", "monaco"],
     github: "https://github.com",
     demo: "https://test-two-beige-83.vercel.app/",
     preview: "https://test-two-beige-83.vercel.app/",
     screenshot: "/skystudio.png",
   },
   {
-    title: "Weather Dashboard",
+    title: "Blueking Fashion",
     description:
-      "Beautiful weather dashboard with location-based forecasts, interactive maps, and historical data visualization. Responsive design for all devices.",
-    technologies: ["Vue.js", "Express", "Chart.js", "OpenWeather API"],
+      "e commerce website for clothing and apparel. it has order tracking",
+    technologies: ["Reactjs", "typesscript", "supabase", "tailwwindCss"],
     github: "https://github.com",
-    demo: "https://example.com",
-    preview: "https://example.com",
-    screenshot: "/weather-dashboard-forecast-charts.jpg",
+    demo: "https://blueking-fashion.vercel.app/",
+    preview: "https://blueking-fashion.vercel.app/",
+    screenshot: "/bluekingFashion.png",
   },
   {
     title: "Portfolio CMS",
@@ -152,7 +152,7 @@ export function Projects() {
               <Button variant="outline" onClick={() => setPreviewProject(null)}>
                 Close
               </Button>
-              <Button asChild>
+              <Button className="bg-[green]" asChild>
                 <a
                   href={projects[previewProject].demo}
                   target="_blank"
