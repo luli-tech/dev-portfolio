@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge";
 
 const experiences = [
   {
-    period: "2025 — Present",
+    period: "march,2025 — june,2025",
     title: "Full-Stack Engineer",
     company: "PrymalLivestock",
     description:
@@ -15,6 +15,65 @@ const experiences = [
       "Node.js",
       "mongodb",
       "graphql",
+      "reducx toolkit",
+      "socket.io",
+      "tailwindcss",
+    ],
+  },
+  {
+    period: "january,2025 — april,2025",
+    title: "Software engineer Mentee",
+    company: "Buildgems",
+    description:
+      "Got mentored on building scalable web applications,collaborated with mentor to build real world projects.",
+    technologies: [
+      "JavaScript",
+      "React",
+      "typescript",
+      "tailwindcss",
+      "nestjs",
+      "react-query",
+      "axios",
+      "React/Nextjs",
+      "shadcn",
+    ],
+  },
+  {
+    period: "october,2025 — December,2025",
+    title: "Backend developer intern",
+    company: "HNG13",
+    description:
+      "Created worked on tasks from stage 0-stage 10. BUillt different system from basic website to websites powered by Ai agents. Collaborated with other people from diffferent stack tracks",
+    technologies: [
+      "Express",
+      "nodejs",
+      "typescript",
+      "microservices",
+      "mongodb",
+      "BullMQ",
+      "Redis",
+      "nodejs",
+      "nestjs",
+      "Mastra",
+      "SQlite",
+      "Prisma",
+      "postgress",
+    ],
+  },
+  {
+    period: "march,2025 — june,2025",
+    title: "backend developer",
+    company: "Gista",
+    description:
+      "Built a scalable and efficient backend system for ecommerce website, implemented graphql api, database schemas, and server-side logic to support frontend functionalities.",
+    technologies: [
+      "nodejs",
+      "graphql",
+      "typescript",
+      "tailwindcss",
+      "mongodb",
+      "apollo-express server",
+      "socket.io",
     ],
   },
   {
@@ -29,24 +88,6 @@ const experiences = [
       "typescript",
       "tailwindcss",
       "shadcn",
-    ],
-  },
-  {
-    period: "october,2025 — present",
-    title: "Backend developer intern",
-    company: "HNG13",
-    description:
-      "Created worked on tasks from stage 0-stage 10. BUillt different system from basic website to websites powered by Ai agents. Collaborated with other people from diffferent stack tracks",
-    technologies: [
-      "Express",
-      "nodejs",
-      "typescript",
-      "nodejs",
-      "nestjs",
-      "Mastra",
-      "SQlite",
-      "Prisma",
-      "postgress",
     ],
   },
 ];
