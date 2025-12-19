@@ -8,7 +8,7 @@ import { useState } from "react";
 
 const projects = [
   {
-    title: "E-Commerce Platform",
+    title: "A fullstack law-school scholarship application website",
     description:
       "a nextjs powered frontend designed for law school scholarship application ",
     technologies: ["Next.js", "TypeScript", "tailwindcss"],
@@ -21,7 +21,15 @@ const projects = [
     title: "website builder Site",
     description:
       "Collaborative website builder application with text editor built with monaco, team workspaces, Features drag-and-drop interface and notifications.",
-    technologies: ["React", "Node.js", "Socket.io", "MongoDB", "monaco"],
+    technologies: [
+      "React",
+      "Node.js",
+      "Socket.io",
+      "MongoDB",
+      "monaco",
+      "redux toolkit",
+      "typescript",
+    ],
     github: "https://github.com",
     demo: "https://test-two-beige-83.vercel.app/",
     preview: "https://test-two-beige-83.vercel.app/",
@@ -38,14 +46,24 @@ const projects = [
     screenshot: "/bluekingFashion.png",
   },
   {
-    title: "Portfolio CMS",
+    title: "taskpadi",
     description:
-      "Content management system for creative professionals to showcase their work. Features custom themes, SEO optimization, and analytics integration.",
-    technologies: ["Next.js", "Sanity", "Tailwind CSS", "Vercel"],
+      "a powerful fullstack web app designed for taskmanagement, with chat functionalty and Ai intergration.",
+    technologies: [
+      "Next.js",
+      "Sanity",
+      "Tailwind CSS",
+      "lovable",
+      "Rust",
+      "Axum",
+      "socket.io",
+      "redux toolkit",
+      "mastra Ai",
+    ],
     github: "https://github.com",
-    demo: "https://example.com",
-    preview: "https://example.com",
-    screenshot: "/portfolio-cms-admin-interface.jpg",
+    demo: "https://taskpadi.vercel.app",
+    preview: "https://taskpadi.vercel.app",
+    screenshot: "/taskpadi.jpg",
   },
 ];
 
