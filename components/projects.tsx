@@ -17,6 +17,7 @@ const projects = [
     preview: "https://law-lift-portal.vercel.app/",
     screenshot: "/reginal-aziza.png",
   },
+
   {
     title: "website builder Site",
     description:
@@ -35,6 +36,7 @@ const projects = [
     preview: "https://test-two-beige-83.vercel.app/",
     screenshot: "/skystudio.png",
   },
+
   {
     title: "Blueking Fashion",
     description:
@@ -45,6 +47,7 @@ const projects = [
     preview: "https://blueking-fashion.vercel.app/",
     screenshot: "/bluekingFashion.png",
   },
+
   {
     title: "taskpadi",
     description:
@@ -63,7 +66,7 @@ const projects = [
     github: "https://github.com",
     demo: "https://taskpadi.vercel.app",
     preview: "https://taskpadi.vercel.app",
-    screenshot: "/taskpadi.jpg",
+    screenshot: "/taskpadi.png",
   },
 ];
 

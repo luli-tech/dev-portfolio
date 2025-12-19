@@ -3,42 +3,6 @@ import { Badge } from "@/components/ui/badge";
 
 const experiences = [
   {
-    period: "march,2025 — june,2025",
-    title: "Full-Stack Engineer",
-    company: "PrymalLivestock",
-    description:
-      "Build and maintain critical components used to construct the frontend and backend of the platform. Built e-commerce website which increased sales by 60%. Work closely with cross-functional teams, including developers, designers, and product managers, to implement and advocate for best practices in web development.",
-    technologies: [
-      "TypeScript",
-      "React",
-      "Next.js",
-      "Node.js",
-      "mongodb",
-      "graphql",
-      "reducx toolkit",
-      "socket.io",
-      "tailwindcss",
-    ],
-  },
-  {
-    period: "january,2025 — april,2025",
-    title: "Software engineer Mentee",
-    company: "Buildgems",
-    description:
-      "Got mentored on building scalable web applications,collaborated with mentor to build real world projects.",
-    technologies: [
-      "JavaScript",
-      "React",
-      "typescript",
-      "tailwindcss",
-      "nestjs",
-      "react-query",
-      "axios",
-      "React/Nextjs",
-      "shadcn",
-    ],
-  },
-  {
     period: "october,2025 — December,2025",
     title: "Backend developer intern",
     company: "HNG13",
@@ -61,9 +25,27 @@ const experiences = [
     ],
   },
   {
-    period: "march,2025 — june,2025",
+    period: "january,2025 — april,2025",
+    title: "Software engineer Mentee",
+    company: "Buildgems",
+    description:
+      "Got mentored on building scalable web applications,collaborated with mentor to build real world projects.",
+    technologies: [
+      "JavaScript",
+      "React",
+      "typescript",
+      "tailwindcss",
+      "nestjs",
+      "react-query",
+      "axios",
+      "React/Nextjs",
+      "shadcn",
+    ],
+  },
+  {
+    period: "April,2025 — April,2025",
     title: "backend developer",
-    company: "Gista",
+    company: "PrymalLivestock",
     description:
       "Built a scalable and efficient backend system for ecommerce website, implemented graphql api, database schemas, and server-side logic to support frontend functionalities.",
     technologies: [
