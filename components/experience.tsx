@@ -1,114 +1,83 @@
-import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 const experiences = [
   {
-    period: "october,2025 — December,2025",
-    title: "Backend developer intern",
     company: "HNG13",
-    description:
-      "Created worked on tasks from stage 0-stage 10. BUillt different system from basic website to websites powered by Ai agents. Collaborated with other people from diffferent stack tracks",
-    technologies: [
-      "Express",
-      "nodejs",
-      "typescript",
-      "microservices",
-      "mongodb",
-      "BullMQ",
-      "Redis",
-      "nodejs",
-      "nestjs",
-      "Mastra",
-      "SQlite",
-      "Prisma",
-      "postgress",
-    ],
+    role: "Backend Developer Intern",
+    period: "Oct 2025 — Dec 2025",
+    type: "Internship",
+    current: true,
   },
   {
-    period: "january,2025 — april,2025",
-    title: "Software engineer Mentee",
     company: "Buildgems",
-    description:
-      "Got mentored on building scalable web applications,collaborated with mentor to build real world projects.",
-    technologies: [
-      "JavaScript",
-      "React",
-      "typescript",
-      "tailwindcss",
-      "nestjs",
-      "react-query",
-      "axios",
-      "React/Nextjs",
-      "shadcn",
-    ],
+    role: "Software Engineer Mentee",
+    period: "Jan 2025 — Apr 2025",
+    type: "Mentorship",
+    current: false,
   },
   {
-    period: "April,2025 — April,2025",
-    title: "backend developer",
     company: "PrymalLivestock",
-    description:
-      "Built a scalable and efficient backend system for ecommerce website, implemented graphql api, database schemas, and server-side logic to support frontend functionalities.",
-    technologies: [
-      "nodejs",
-      "graphql",
-      "typescript",
-      "tailwindcss",
-      "mongodb",
-      "apollo-express server",
-      "socket.io",
-    ],
+    role: "Backend Developer",
+    period: "Apr 2025",
+    type: "Contract",
+    current: false,
   },
   {
-    period: "january,2025 — april,2025",
-    title: "frontend developer",
     company: "Gista",
-    description:
-      "Built a stunning user interface in collaboration with other frontend devlopers,UI/UX designers",
-    technologies: [
-      "JavaScript",
-      "React",
-      "typescript",
-      "tailwindcss",
-      "shadcn",
-    ],
+    role: "Frontend Developer",
+    period: "Jan 2025 — Apr 2025",
+    type: "Contract",
+    current: false,
   },
 ];
 
 export function Experience() {
   return (
-    <section
-      id="experience"
-      className="min-h-screen flex items-center justify-center px-6 py-20"
-    >
-      <div className="container mx-auto max-w-4xl">
-        <h2 className="text-4xl md:text-5xl font-bold mb-12 text-balance">
-          Experience
-        </h2>
-        <div className="space-y-8">
-          {experiences.map((exp, index) => (
-            <Card key={index} className="p-6 hover:shadow-lg transition-shadow">
-              <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
-                <div>
-                  <h3 className="text-xl font-bold mb-1">{exp.title}</h3>
-                  <p className="text-[green] font-semibold">{exp.company}</p>
+    <section id="experience" className="py-16 border-t border-border/50">
+      <div className="flex items-center justify-between mb-8">
+        <h2 className="text-xl font-bold font-bebas tracking-wide">Career</h2>
+        <a href="#experience" className="text-sm text-primary font-medium hover:underline flex items-center gap-1">
+          View all <span aria-hidden="true">-&gt;</span>
+        </a>
+      </div>
+
+      <div className="space-y-6 pl-2">
+        {experiences.map((exp, index) => (
+          <div key={index} className="relative group">
+            <div className="flex items-center gap-4 mb-2">
+              <div className="w-6 h-6 rounded-md bg-secondary text-secondary-foreground flex items-center justify-center text-xs font-bold font-mono shadow-sm border border-border/50 z-10 relative">
+                {exp.company.charAt(0)}
+              </div>
+              <h3 className="text-base font-semibold">{exp.company}</h3>
+              {exp.type && (
+                <span className="text-[10px] font-medium uppercase tracking-wider px-2 py-0.5 rounded-full bg-primary/10 text-primary hidden md:inline-block">
+                  {exp.type}
+                </span>
+              )}
+            </div>
+            <div className="pl-3 relative">
+              <div className="absolute left-[2px] top-0 bottom-0 w-[1px] bg-border group-last:bg-gradient-to-b group-last:from-border group-last:to-transparent -translate-x-[1px]"></div>
+              
+              <div className="pl-6 py-2 relative">
+                <div className="absolute left-0 top-6 w-4 h-[1px] bg-border"></div>
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+                  <span className="text-sm font-mono text-muted-foreground whitespace-nowrap min-w-[120px]">
+                    {exp.period}
+                  </span>
+                  <div className="flex items-center gap-2 text-sm">
+                    <span className="text-muted-foreground/80">{exp.role}</span>
+                    {exp.current && (
+                      <span className="flex items-center gap-1.5 text-xs text-primary font-medium">
+                        <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                        Now
+                      </span>
+                    )}
+                  </div>
                 </div>
-                <p className="text-sm text-muted-foreground font-mono mt-2 md:mt-0">
-                  {exp.period}
-                </p>
               </div>
-              <p className="text-muted-foreground mb-4 leading-relaxed">
-                {exp.description}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {exp.technologies.map((tech) => (
-                  <Badge key={tech} variant="secondary">
-                    {tech}
-                  </Badge>
-                ))}
-              </div>
-            </Card>
-          ))}
-        </div>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

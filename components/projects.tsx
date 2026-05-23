@@ -1,192 +1,76 @@
-"use client";
-
-import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Github, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { ArrowUpRight } from "lucide-react";
 
 const projects = [
   {
-    title: "A fullstack law-school scholarship application website",
-    description:
-      "a nextjs powered frontend designed for law school scholarship application ",
-    technologies: ["Next.js", "TypeScript", "tailwindcss"],
-    github: "https://github.com/luli-tech/law-lift-portal",
-    demo: "https://law-lift-portal.vercel.app/",
-    preview: "https://law-lift-portal.vercel.app/",
-    screenshot: "/reginal-aziza.png",
+    title: "Law-lift Portal",
+    description: "A fullstack law-school scholarship application website",
+    technologies: ["Next.js", "TypeScript", "TailwindCSS"],
+    link: "https://law-lift-portal.vercel.app/",
   },
-
   {
-    title: "website builder Site",
-    description:
-      "Collaborative website builder application with text editor built with monaco, team workspaces, Features drag-and-drop interface and notifications.",
-    technologies: [
-      "React",
-      "Node.js",
-      "Socket.io",
-      "MongoDB",
-      "monaco",
-      "redux toolkit",
-      "typescript",
-    ],
-    github: "https://github.com",
-    demo: "https://test-two-beige-83.vercel.app/",
-    preview: "https://test-two-beige-83.vercel.app/",
-    screenshot: "/skystudio.png",
+    title: "Website Builder",
+    description: "Collaborative website builder application with text editor built with monaco, team workspaces, drag-and-drop interface and notifications.",
+    technologies: ["React", "Node.js", "Socket.io", "MongoDB", "Redux"],
+    link: "https://test-two-beige-83.vercel.app/",
   },
-
   {
     title: "Blueking Fashion",
-    description:
-      "e commerce website for clothing and apparel. it has order tracking",
-    technologies: ["Reactjs", "typesscript", "supabase", "tailwwindCss"],
-    github: "https://github.com",
-    demo: "https://blueking-fashion.vercel.app/",
-    preview: "https://blueking-fashion.vercel.app/",
-    screenshot: "/bluekingFashion.png",
+    description: "E-commerce website for clothing and apparel with order tracking.",
+    technologies: ["Reactjs", "TypeScript", "Supabase", "TailwindCss"],
+    link: "https://blueking-fashion.vercel.app/",
   },
-
   {
-    title: "taskpadi",
-    description:
-      "a powerful fullstack web app designed for taskmanagement, with chat functionalty and Ai intergration.",
-    technologies: [
-      "Next.js",
-      "Sanity",
-      "Tailwind CSS",
-      "lovable",
-      "Rust",
-      "Axum",
-      "socket.io",
-      "redux toolkit",
-      "mastra Ai",
-    ],
-    github: "https://github.com",
-    demo: "https://taskpadi.vercel.app",
-    preview: "https://taskpadi.vercel.app",
-    screenshot: "/taskpadi.png",
+    title: "Taskpadi",
+    description: "A powerful fullstack web app designed for task management, with chat functionality and AI integration.",
+    technologies: ["Next.js", "Rust", "Axum", "Socket.io", "Mastra AI"],
+    link: "https://taskpadi.vercel.app",
   },
 ];
 
 export function Projects() {
-  const [hoveredProject, setHoveredProject] = useState<number | null>(null);
-  const [previewProject, setPreviewProject] = useState<number | null>(null);
-
   return (
-    <section
-      id="projects"
-      className="min-h-screen flex items-center justify-center px-6 py-20"
-    >
-      <div className="container mx-auto max-w-6xl">
-        <h2 className="text-4xl md:text-5xl font-bold mb-12 text-balance">
-          Featured Projects
-        </h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          {projects.map((project, index) => (
-            <Card
-              key={index}
-              className="group overflow-hidden hover:shadow-xl hover:shadow-primary/20 transition-all duration-300 hover:scale-[1.02] border-2 hover:border-primary/50"
-              onMouseEnter={() => setHoveredProject(index)}
-              onMouseLeave={() => setHoveredProject(null)}
-            >
-              <div className="relative h-48 overflow-hidden bg-muted">
-                <img
-                  src={project.screenshot || "/placeholder.svg"}
-                  alt={`${project.title} screenshot`}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent opacity-60" />
-                <div
-                  className={`absolute inset-0 bg-primary/10 backdrop-blur-sm flex items-center justify-center gap-3 transition-opacity duration-300 ${
-                    hoveredProject === index ? "opacity-100" : "opacity-0"
-                  }`}
-                >
-                  <Button variant="secondary" size="sm" asChild>
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Github className="h-4 w-4 mr-2" />
-                      Code
-                    </a>
-                  </Button>
-                  <Button
-                    variant="secondary"
-                    size="sm"
-                    onClick={() => setPreviewProject(index)}
-                  >
-                    <ExternalLink className="h-4 w-4 mr-2" />
-                    Preview
-                  </Button>
-                </div>
-              </div>
-              <div className="p-6 flex flex-col">
-                <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-muted-foreground mb-4 leading-relaxed flex-grow">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech) => (
-                    <Badge
-                      key={tech}
-                      variant="secondary"
-                      className="bg-primary/10 text-primary border-primary/20"
-                    >
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
-            </Card>
-          ))}
-        </div>
+    <section id="projects" className="py-16 border-t border-border/50">
+      <div className="flex items-center justify-between mb-8">
+        <h2 className="text-xl font-bold font-bebas tracking-wide">Selected Work</h2>
+        <a href="#projects" className="text-sm text-primary font-medium hover:underline flex items-center gap-1">
+          View all <span aria-hidden="true">-&gt;</span>
+        </a>
       </div>
 
-      {previewProject !== null && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
-          <Card className="w-full max-w-4xl h-[80vh] flex flex-col border-2 shadow-2xl">
-            <div className="flex items-center justify-between p-4 border-b">
-              <h3 className="text-xl font-bold">
-                {projects[previewProject].title} - Live Preview
+      <div className="flex flex-col">
+        {projects.map((project, index) => (
+          <a
+            key={index}
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-6 py-6 border-b border-border/50 last:border-0 hover:bg-muted/50 transition-colors -mx-4 px-4 rounded-xl"
+          >
+            <div className="sm:w-1/3 flex items-center justify-between sm:justify-start gap-2">
+              <h3 className="text-base font-semibold group-hover:text-primary transition-colors">
+                {project.title}
               </h3>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => setPreviewProject(null)}
-              >
-                <X className="h-4 w-4" />
-              </Button>
+              <ArrowUpRight className="h-4 w-4 text-muted-foreground opacity-0 -translate-x-2 translate-y-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300" />
             </div>
-            <div className="flex-1 overflow-hidden">
-              <iframe
-                src={projects[previewProject].preview}
-                className="w-full h-full border-0"
-                title={`${projects[previewProject].title} preview`}
-              />
+            
+            <div className="sm:w-2/3 space-y-3">
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {project.description}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {project.technologies.map((tech) => (
+                  <span
+                    key={tech}
+                    className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded border border-border text-muted-foreground group-hover:border-primary/30 group-hover:text-primary transition-colors"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
             </div>
-            <div className="p-4 border-t flex gap-2 justify-end">
-              <Button variant="outline" onClick={() => setPreviewProject(null)}>
-                Close
-              </Button>
-              <Button className="bg-[green]" asChild>
-                <a
-                  href={projects[previewProject].demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <ExternalLink className="h-4 w-4 mr-2" />
-                  Open Full Site
-                </a>
-              </Button>
-            </div>
-          </Card>
-        </div>
-      )}
+          </a>
+        ))}
+      </div>
     </section>
   );
 }
