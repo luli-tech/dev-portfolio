@@ -12,6 +12,14 @@ export function Hero() {
     "System Designer"
   ];
 
+  const skills = [
+    "TypeScript", "JavaScript", "Rust", "Go", "Node.js", "NestJS", "Express",
+    "React", "Next.js", "React Native", "TailwindCSS", "PostgreSQL", "MongoDB", "Redis",
+    "AWS", "Microservices", "GraphQL", "Socket.io", "BullMQ",
+    "Mobile", "Microservice Applications", "AI-Driven", "System-Level",
+    "Claude", "Codex"
+  ];
+
   return (
     <section className="pt-12 pb-8">
       <div className="space-y-6">
@@ -31,29 +39,50 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="max-w-2xl text-base md:text-lg text-muted-foreground leading-relaxed space-y-4">
+        {/* About Me — inline under typewriter */}
+        <div className="space-y-4 text-sm md:text-base leading-relaxed text-muted-foreground">
           <p>
-            I engineer software that scales, from <strong className="text-foreground font-semibold">AI-powered products</strong> to <strong className="text-foreground font-semibold">cloud-native systems</strong> and everything in between. I care about craft: <strong className="text-foreground font-semibold">clean APIs</strong>, thoughtful architecture, and interfaces that feel right.
+            I'm Olabode Micheal Ayomikun, a passionate Full-Stack Software Engineer specializing in scalable,
+            high-performance applications across the entire stack. From crafting beautiful, responsive frontends
+            with React and Next.js to building <strong className="text-foreground">mobile apps</strong> with React Native,
+            I ship products that feel right on every screen.
           </p>
-
           <p>
-            Currently building at the intersection of <strong className="text-foreground font-semibold">AI, Web3, and modern web</strong>, turning ambitious ideas into production-ready reality. Whether it's designing <strong className="text-foreground font-semibold">distributed backends</strong> that handle real traffic, building <strong className="text-foreground font-semibold">developer tools</strong> that save teams hours, or shipping full-stack products end to end, I bring the same standard: it should work well, read well, and hold up over time.
+            My backend expertise covers <strong className="text-foreground">microservice architectures</strong>,
+            <strong className="text-foreground"> AI-driven applications</strong>, and
+            <strong className="text-foreground"> system-level engineering</strong> with Rust and Node.js —
+            delivering solutions that are performant, fault-tolerant, and built to scale.
           </p>
         </div>
 
-        <div className="flex flex-wrap items-center gap-4 pt-4">
+        {/* Core Technologies */}
+        <div>
+          <h3 className="text-sm font-semibold mb-3 text-foreground">Core Technologies</h3>
+          <div className="flex flex-wrap gap-2">
+            {skills.map((skill) => (
+              <span
+                key={skill}
+                className="text-xs font-mono px-3 py-1.5 rounded-md border border-dashed border-border text-muted-foreground hover:border-primary/50 hover:text-foreground transition-colors cursor-default"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className="flex flex-wrap items-center gap-4 pt-2">
           <span className="text-sm font-semibold mr-2">Curious? Let's go deeper</span>
-          <Button variant="outline" className="rounded-full gap-2 px-6 shadow-sm hover:shadow-md transition-all">
+          <Button variant="outline" className="rounded-full gap-2 px-6 shadow-sm hover:shadow-md transition-all border-dashed">
             <Mail className="h-4 w-4" />
             Email Me
           </Button>
-          <Button variant="outline" className="rounded-full gap-2 px-6 shadow-sm hover:shadow-md transition-all">
+          <Button variant="outline" className="rounded-full gap-2 px-6 shadow-sm hover:shadow-md transition-all border-dashed">
             <FileText className="h-4 w-4" />
             Resume
           </Button>
         </div>
 
-        <div className="pt-8">
+        <div className="pt-4">
           <h3 className="text-base font-bold mb-4">Connect</h3>
           <div className="flex flex-wrap gap-4">
             <a href="https://github.com/luli-tech" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">

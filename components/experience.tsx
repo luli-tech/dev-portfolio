@@ -9,6 +9,13 @@ const experiences = [
     current: true,
   },
   {
+    company: "SkyStudio",
+    role: "Software Engineer",
+    period: "2025",
+    type: "Remote",
+    current: false,
+  },
+  {
     company: "Buildgems",
     role: "Software Engineer Mentee",
     period: "Jan 2025 — Apr 2025",
@@ -19,14 +26,14 @@ const experiences = [
     company: "PrymalLivestock",
     role: "Backend Developer",
     period: "Apr 2025",
-    type: "Contract",
+    type: "Freelancer",
     current: false,
   },
   {
     company: "Gista",
     role: "Frontend Developer",
     period: "Jan 2025 — Apr 2025",
-    type: "Contract",
+    type: "Remote",
     current: false,
   },
 ];
