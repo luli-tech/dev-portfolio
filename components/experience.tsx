@@ -33,7 +33,7 @@ const experiences = [
 
 export function Experience() {
   return (
-    <section id="experience" className="py-16 border-t border-border/50">
+    <section id="experience" className="py-8 border-t border-border/50">
       <div className="flex items-center justify-between mb-8">
         <h2 className="text-xl font-bold font-bebas tracking-wide">Career</h2>
         <a href="#experience" className="text-sm text-primary font-medium hover:underline flex items-center gap-1">

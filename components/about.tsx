@@ -6,7 +6,7 @@ export function About() {
   ];
 
   return (
-    <section id="about" className="py-16 border-t border-border/50">
+    <section id="about" className="py-8 border-t border-border/50">
       <div className="flex items-center justify-between mb-8">
         <h2 className="text-xl font-bold font-bebas tracking-wide">About Me</h2>
       </div>

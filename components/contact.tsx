@@ -3,16 +3,9 @@ import { Button } from "@/components/ui/button";
 
 export function Contact() {
   return (
-    <footer id="contact" className="pt-32 pb-8 w-full flex flex-col">
-      {/* Signature Section */}
-      <div className="flex justify-center mb-32">
-        <h2 className="text-8xl md:text-9xl font-handwriting tracking-tight opacity-90 select-none">
-          Micheal
-        </h2>
-      </div>
-
+    <footer id="contact" className="pt-16 pb-8 w-full flex flex-col">
       {/* CTA Row */}
-      <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-24 w-full">
+      <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-12 w-full">
         <h3 className="text-2xl md:text-3xl font-bold tracking-tight">
           Ready to build something that lasts?
         </h3>

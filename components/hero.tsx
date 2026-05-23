@@ -4,15 +4,16 @@ import { Typewriter } from "./typewriter";
 
 export function Hero() {
   const titles = [
-    "AI-powered products",
-    "cloud-native systems",
-    "developer tools",
-    "modern web",
-    "distributed backends",
+    "Software Engineer",
+    "Frontend Developer",
+    "Backend Developer",
+    "Mobile Developer",
+    "Full-Stack Engineer",
+    "System Designer"
   ];
 
   return (
-    <section className="pt-24 pb-16">
+    <section className="pt-12 pb-8">
       <div className="space-y-6">
         <p className="text-muted-foreground font-mono text-sm">
           Hey it's me <span className="text-xl">👋</span>
@@ -22,17 +23,17 @@ export function Hero() {
           <h1 className="text-7xl md:text-8xl font-bold font-bebas tracking-tight uppercase">
             Micheal
           </h1>
-          <div className="flex items-center gap-2 text-muted-foreground text-sm font-mono">
-            <span>Making complex problems</span>
-            <span className="w-[1px] h-4 bg-border"></span>
+          <div className="flex items-center gap-2 text-muted-foreground text-sm font-mono h-6">
+            <span>I am a</span>
+            <span className="text-primary font-medium">
+              <Typewriter texts={titles} />
+            </span>
           </div>
         </div>
 
         <div className="max-w-2xl text-base md:text-lg text-muted-foreground leading-relaxed space-y-4">
           <p>
-            I engineer software that scales, from{" "}
-            <Typewriter texts={titles} />
-            {" "}and everything in between. I care about craft: <strong className="text-foreground font-semibold">clean APIs</strong>, thoughtful architecture, and interfaces that feel right.
+            I engineer software that scales, from <strong className="text-foreground font-semibold">AI-powered products</strong> to <strong className="text-foreground font-semibold">cloud-native systems</strong> and everything in between. I care about craft: <strong className="text-foreground font-semibold">clean APIs</strong>, thoughtful architecture, and interfaces that feel right.
           </p>
 
           <p>

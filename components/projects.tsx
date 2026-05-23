@@ -29,7 +29,7 @@ const projects = [
 
 export function Projects() {
   return (
-    <section id="projects" className="py-16 border-t border-border/50">
+    <section id="projects" className="py-8 border-t border-border/50">
       <div className="flex items-center justify-between mb-8">
         <h2 className="text-xl font-bold font-bebas tracking-wide">Selected Work</h2>
         <a href="#projects" className="text-sm text-primary font-medium hover:underline flex items-center gap-1">

@@ -1,19 +1,19 @@
 import type React from "react";
 import type { Metadata } from "next";
-import { Inter, Bebas_Neue, Pacifico } from "next/font/google";
+import { Figtree, Iceberg, Pacifico } from "next/font/google";
 import { Suspense } from "react";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 
-const inter = Inter({
+const figtree = Figtree({
   subsets: ["latin"],
   variable: "--font-sans",
 });
 
-const bebasNeue = Bebas_Neue({
+const iceberg = Iceberg({
   weight: "400",
   subsets: ["latin"],
-  variable: "--font-bebas",
+  variable: "--font-iceberg",
 });
 
 const pacifico = Pacifico({
@@ -38,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <body
-        className={`font-sans ${inter.variable} ${bebasNeue.variable} ${pacifico.variable} antialiased selection:bg-primary/20 selection:text-primary max-w-3xl mx-auto px-6 md:px-12 py-12 md:py-24`}
+        className={`font-sans ${figtree.variable} ${iceberg.variable} ${pacifico.variable} antialiased selection:bg-primary/20 selection:text-primary max-w-3xl mx-auto px-6 md:px-12 py-12 md:py-24`}
       >
         <ThemeProvider
           attribute="class"
@@ -46,7 +46,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
+          <Suspense fallback={<div>Loading...</div>}>
+            <div className="relative z-20">{children}</div>
+          </Suspense>
         </ThemeProvider>
       </body>
     </html>
