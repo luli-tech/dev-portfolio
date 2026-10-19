@@ -125,6 +125,23 @@
 }
 
 @layer utilities {
+  .animate-wave {
+    animation: wave 2.8s ease-in-out infinite;
+  }
+
+  @keyframes wave {
+    0%, 60%, 100% { transform: rotate(0deg); }
+    10%, 30% { transform: rotate(18deg); }
+    20%, 40% { transform: rotate(-10deg); }
+    50% { transform: rotate(12deg); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-wave {
+      animation: none;
+    }
+  }
+
   .animate-fade-in-up {
     animation: fadeInUp 0.8s ease-out forwards;
   }

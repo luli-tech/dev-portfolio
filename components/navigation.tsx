@@ -19,10 +19,15 @@ const sections = [
   { id: "contact", label: "Contact" },
 ];
 
-export function Navigation() {
+type NavigationProps = {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+};
+
+export function Navigation({ open, onOpenChange }: NavigationProps) {
   return (
-    <nav aria-label="Mobile navigation" className="fixed top-6 left-3 z-50 sm:hidden">
-      <DropdownMenu modal={false}>
+    <nav aria-label="Mobile navigation" className="pointer-events-auto sm:hidden">
+      <DropdownMenu modal={false} open={open} onOpenChange={onOpenChange}>
         <DropdownMenuTrigger asChild>
           <Button
             type="button"

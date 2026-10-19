@@ -14,7 +14,7 @@ export function Hero() {
   ];
 
   const skills = [
-    "TypeScript", "JavaScript", "Rust", "Go", "Node.js", "NestJS", "Express",
+    "TypeScript", "JavaScript", "Rust", "Tauri", "Go", "Node.js", "NestJS", "Express",
     "React", "Next.js", "React Native", "Flutter", "TailwindCSS", "PostgreSQL", "MongoDB", "Redis",
     "AWS", "Microservices", "GraphQL", "Socket.io", "BullMQ",
     "Mobile", "Microservice Applications", "AI-Driven", "System-Level",
@@ -34,7 +34,7 @@ export function Hero() {
       <div className="contents sm:block sm:space-y-6">
         <div className="row-start-1 space-y-6">
           <p className="whitespace-nowrap text-muted-foreground font-mono text-sm">
-            Hey it's me <span className="text-xl">👋</span>
+            Hey it's me <span className="animate-wave inline-block origin-[70%_70%] text-xl" role="img" aria-label="Waving hand">👋</span>
           </p>
 
           <div className="space-y-1">

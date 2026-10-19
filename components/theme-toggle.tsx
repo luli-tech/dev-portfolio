@@ -17,7 +17,7 @@ export function ThemeToggle() {
   }, [])
 
   if (!mounted) {
-    return <div className="fixed top-6 right-3 z-50 w-10 h-10 sm:right-6"></div>
+    return <div className="ml-auto w-10 h-10"></div>
   }
 
   const isDark = resolvedTheme === "dark"
@@ -47,7 +47,7 @@ export function ThemeToggle() {
   }
 
   return (
-    <div className="fixed top-6 right-3 z-50 sm:right-6">
+    <div className="pointer-events-auto ml-auto">
       <Button
         type="button"
         variant="ghost"
