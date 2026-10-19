@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 export function Contact() {
   return (
-    <footer id="contact" className="pt-16 pb-8 w-full flex flex-col">
+    <footer id="contact" className="scroll-mt-24 pt-16 pb-8 w-full flex flex-col">
       {/* CTA Row */}
       <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-12 w-full">
         <h3 className="text-2xl md:text-3xl font-bold tracking-tight">

@@ -1,126 +1,56 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "@/components/theme-toggle";
-import { Menu, X } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
+const sections = [
+  { id: "home", label: "About Me" },
+  { id: "technologies", label: "Core Technologies" },
+  { id: "experience", label: "Career" },
+  { id: "projects", label: "Selected Work" },
+  { id: "education", label: "Education" },
+  { id: "connect", label: "Connect" },
+  { id: "contact", label: "Contact" },
+];
 
 export function Navigation() {
-  const [activeSection, setActiveSection] = useState("home");
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = [
-        "home",
-        "about",
-        "roadmap",
-        "experience",
-        "projects",
-        "contact",
-      ];
-      const scrollPosition = window.scrollY + 100;
-
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (
-            scrollPosition >= offsetTop &&
-            scrollPosition < offsetTop + offsetHeight
-          ) {
-            setActiveSection(section);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setMobileMenuOpen(false);
-    }
-  };
-
-  const navItems = [
-    { id: "home", label: "Home" },
-    { id: "about", label: "About" },
-    { id: "roadmap", label: "Roadmap" },
-    { id: "experience", label: "Experience" },
-    { id: "projects", label: "Projects" },
-    { id: "Blog", label: "Blog" },
-    { id: "gallery", label: "Gallery" },
-    { id: "contact", label: "Contact" },
-  ];
-
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          <button
-            onClick={() => scrollToSection("home")}
-            className="text-lg cursor-pointer font-semibold text-foreground hover:text-primary transition-colors"
+    <nav aria-label="Mobile navigation" className="fixed top-6 left-3 z-50 sm:hidden">
+      <DropdownMenu modal={false}>
+        <DropdownMenuTrigger asChild>
+          <Button
+            type="button"
+            variant="ghost"
+            size="icon"
+            aria-label="Open navigation menu"
+            className="h-10 w-10 cursor-pointer rounded-full border bg-background/80 shadow-sm backdrop-blur hover:bg-muted"
           >
-            Olabode Micheal
-          </button>
-
-          <div className="hidden md:flex items-center gap-1">
-            {navItems.map((item) => (
-              <Button
-                key={item.id}
-                variant="ghost"
-                size="sm"
-                onClick={() => scrollToSection(item.id)}
-                className={`cursor-pointer,font-bold ${
-                  activeSection === item.id
-                    ? "text-[green]"
-                    : "text-muted-foreground"
-                }`}
-              >
-                {item.label}
-              </Button>
-            ))}
-            <ThemeToggle />
-          </div>
-
-          {/* Mobile menu */}
-          <div className="md:hidden flex items-center gap-2">
-            <ThemeToggle />
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            <Menu aria-hidden="true" className="h-5 w-5" />
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent
+          align="start"
+          sideOffset={8}
+          collisionPadding={12}
+          className="w-56 rounded-xl p-2 sm:hidden"
+        >
+          {sections.map((section) => (
+            <DropdownMenuItem
+              key={section.id}
+              asChild
+              className="min-h-11 cursor-pointer rounded-lg px-3"
             >
-              {mobileMenuOpen ? (
-                <X className="h-5 w-5" />
-              ) : (
-                <Menu className="h-5 w-5" />
-              )}
-            </Button>
-          </div>
-        </div>
-
-        {mobileMenuOpen && (
-          <div className="md:hidden mt-4 space-y-2 pb-4">
-            {navItems.map((item) => (
-              <Button
-                key={item.id}
-                variant="ghost"
-                className="w-full justify-start"
-                onClick={() => scrollToSection(item.id)}
-              >
-                {item.label}
-              </Button>
-            ))}
-          </div>
-        )}
-      </div>
+              <a href={`#${section.id}`}>{section.label}</a>
+            </DropdownMenuItem>
+          ))}
+        </DropdownMenuContent>
+      </DropdownMenu>
     </nav>
   );
 }

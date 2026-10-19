@@ -3,75 +3,65 @@
 import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
 import { Button } from "@/components/ui/button"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
+import { flushSync } from "react-dom"
 
 export function ThemeToggle() {
-  const { theme, setTheme } = useTheme()
+  const { resolvedTheme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
-  const [stage, setStage] = useState<"idle" | "covering" | "revealing">("idle")
-  const [activeIcon, setActiveIcon] = useState<"light" | "dark">("light")
+  const transitionRef = useRef<ViewTransition | null>(null)
 
   useEffect(() => {
     setMounted(true)
-    if (theme) {
-      setActiveIcon(theme as "light" | "dark")
-    }
-  }, [theme])
+    return () => transitionRef.current?.skipTransition()
+  }, [])
 
   if (!mounted) {
-    return <div className="w-10 h-10 fixed top-6 right-6 z-50"></div>
+    return <div className="fixed top-6 right-3 z-50 w-10 h-10 sm:right-6"></div>
   }
 
+  const isDark = resolvedTheme === "dark"
+
   const handleToggle = () => {
-    if (stage !== "idle") return
-    
-    // Trigger the icon (font) transition immediately upon click
-    const nextTheme = theme === "light" ? "dark" : "light"
-    setActiveIcon(nextTheme)
-    
-    setStage("covering")
-    
-    // Slide down duration is 400ms
-    setTimeout(() => {
-      // Toggle the theme when the curtain fully covers the screen
+    const nextTheme = isDark ? "light" : "dark"
+    transitionRef.current?.skipTransition()
+
+    if (
+      !document.startViewTransition ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
       setTheme(nextTheme)
-      setStage("revealing")
-      
-      // Slide up duration is 400ms
-      setTimeout(() => {
-        setStage("idle")
-      }, 400)
-    }, 400)
+      return
+    }
+
+    const transition = document.startViewTransition(() => {
+      flushSync(() => setTheme(nextTheme))
+    })
+    transitionRef.current = transition
+
+    // A new click can skip the previous swipe before its snapshots are ready.
+    void transition.ready.catch(() => {})
+    void transition.finished.catch(() => {}).finally(() => {
+      if (transitionRef.current === transition) transitionRef.current = null
+    })
   }
 
   return (
-    <>
-      <div className="fixed top-6 right-6 z-50">
-        <Button 
-          variant="ghost" 
-          size="icon" 
-          onClick={handleToggle} 
-          className="rounded-full w-10 h-10 bg-background/80 backdrop-blur border shadow-sm hover:bg-muted"
-          aria-label="Toggle theme"
-          disabled={stage !== "idle"}
-        >
-          <Sun className={`h-[1.2rem] w-[1.2rem] transition-all ${
-            activeIcon === "light" ? "rotate-0 scale-100" : "-rotate-90 scale-0"
-          }`} />
-          <Moon className={`absolute h-[1.2rem] w-[1.2rem] transition-all ${
-            activeIcon === "dark" ? "rotate-0 scale-100" : "rotate-90 scale-0"
-          }`} />
-        </Button>
-      </div>
-
-      {/* Rolling curtain overlay */}
-      <div 
-        className={`fixed inset-0 z-50 pointer-events-none w-screen h-screen transition-transform duration-400 ease-in-out mix-blend-difference bg-white ${
-          stage === "covering" 
-            ? "translate-y-0" 
-            : "-translate-y-full"
-        }`}
-      />
-    </>
+    <div className="fixed top-6 right-3 z-50 sm:right-6">
+      <Button
+        type="button"
+        variant="ghost"
+        size="icon"
+        onClick={handleToggle}
+        className="cursor-pointer rounded-full w-10 h-10 bg-background/80 backdrop-blur border shadow-sm hover:bg-muted"
+        aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
+      >
+        {isDark ? (
+          <Moon className="h-[1.2rem] w-[1.2rem]" aria-hidden="true" />
+        ) : (
+          <Sun className="h-[1.2rem] w-[1.2rem]" aria-hidden="true" />
+        )}
+      </Button>
+    </div>
   )
 }

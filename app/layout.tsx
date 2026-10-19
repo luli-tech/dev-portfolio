@@ -23,7 +23,7 @@ const pacifico = Pacifico({
 });
 
 export const metadata: Metadata = {
-  title: "PHOENIX | Software Engineer",
+  title: "Luli-Tech | Software Engineer",
   description: "Software engineer building software that moves the needle.",
   icons: {
     icon: "fav.ico",
@@ -38,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <body
-        className={`font-sans ${figtree.variable} ${iceberg.variable} ${pacifico.variable} antialiased selection:bg-primary/20 selection:text-primary max-w-3xl mx-auto px-6 md:px-12 py-12 md:py-24`}
+        className={`font-sans ${figtree.variable} ${iceberg.variable} ${pacifico.variable} antialiased selection:bg-primary/20 selection:text-primary max-w-3xl xl:max-w-4xl mx-auto px-3 sm:px-6 md:px-12 py-12 md:py-24`}
       >
         <ThemeProvider
           attribute="class"

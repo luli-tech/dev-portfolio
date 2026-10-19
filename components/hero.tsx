@@ -1,4 +1,5 @@
 import { Github, Linkedin, Mail, FileText, Twitter } from "lucide-react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Typewriter } from "./typewriter";
 
@@ -14,49 +15,68 @@ export function Hero() {
 
   const skills = [
     "TypeScript", "JavaScript", "Rust", "Go", "Node.js", "NestJS", "Express",
-    "React", "Next.js", "React Native", "TailwindCSS", "PostgreSQL", "MongoDB", "Redis",
+    "React", "Next.js", "React Native", "Flutter", "TailwindCSS", "PostgreSQL", "MongoDB", "Redis",
     "AWS", "Microservices", "GraphQL", "Socket.io", "BullMQ",
     "Mobile", "Microservice Applications", "AI-Driven", "System-Level",
     "Claude", "Codex"
   ];
 
   return (
-    <section className="pt-12 pb-8">
-      <div className="space-y-6">
-        <p className="text-muted-foreground font-mono text-sm">
-          Hey it's me <span className="text-xl">👋</span>
-        </p>
+    <section id="home" className="grid scroll-mt-24 gap-6 pt-8 pb-8 sm:flow-root sm:pt-12">
+      <Image
+        src="/fav.ico"
+        alt="Olabode Micheal Ayomikun"
+        width={288}
+        height={384}
+        priority
+        className="hidden h-auto rounded-2xl border border-border shadow-sm sm:block sm:float-right sm:mt-24 sm:mb-6 sm:ml-8 sm:w-56 xl:w-72"
+      />
+      <div className="contents sm:block sm:space-y-6">
+        <div className="row-start-1 space-y-6">
+          <p className="whitespace-nowrap text-muted-foreground font-mono text-sm">
+            Hey it's me <span className="text-xl">👋</span>
+          </p>
 
-        <div className="space-y-1">
-          <h1 className="text-7xl md:text-8xl font-bold font-bebas tracking-tight uppercase">
-            Micheal
-          </h1>
-          <div className="flex items-center gap-2 text-muted-foreground text-sm font-mono h-6">
-            <span>I am a</span>
-            <span className="text-primary font-medium">
-              <Typewriter texts={titles} />
-            </span>
+          <div className="space-y-1">
+            <h1 className="text-4xl min-[400px]:text-5xl sm:text-7xl md:text-8xl font-bold font-bebas tracking-tight uppercase">
+              Micheal
+            </h1>
+            <div className="flex items-center gap-2 text-muted-foreground text-xs font-mono h-6 sm:text-sm">
+              <span>I am a</span>
+              <span className="max-w-full text-primary font-medium">
+                <Typewriter texts={titles} />
+              </span>
+            </div>
           </div>
         </div>
 
         {/* About Me — inline under typewriter */}
-        <div className="space-y-4 text-sm md:text-base leading-relaxed text-muted-foreground">
-          <p>
-            I'm Olabode Micheal Ayomikun, a passionate Full-Stack Software Engineer specializing in scalable,
-            high-performance applications across the entire stack. From crafting beautiful, responsive frontends
-            with React and Next.js to building <strong className="text-foreground">mobile apps</strong> with React Native,
-            I ship products that feel right on every screen.
-          </p>
-          <p>
-            My backend expertise covers <strong className="text-foreground">microservice architectures</strong>,
-            <strong className="text-foreground"> AI-driven applications</strong>, and
-            <strong className="text-foreground"> system-level engineering</strong> with Rust and Node.js —
-            delivering solutions that are performant, fault-tolerant, and built to scale.
-          </p>
+        <div id="about" className="flow-root scroll-mt-24 text-sm md:text-base leading-relaxed text-muted-foreground sm:block">
+          <Image
+            src="/fav.ico"
+            alt="Olabode Micheal Ayomikun"
+            width={288}
+            height={384}
+            priority
+            className="float-right ml-4 block w-[48%] max-w-56 h-auto rounded-2xl border border-border shadow-sm sm:hidden"
+          />
+          <div className="space-y-4">
+            <p>
+              I'm Olabode Micheal Ayomikun, a Full-Stack Software Engineer building web, mobile, and backend
+              applications. I create responsive web experiences with React and Next.js, and
+              <strong className="text-foreground"> cross-platform mobile apps with Flutter and React Native</strong>.
+            </p>
+            <p>
+              My work spans <strong className="text-foreground">microservices</strong>, real-time systems, and
+              <strong className="text-foreground"> AI applications</strong>. Using Node.js, Go, and Rust, I build
+              secure APIs, connect distributed services, and integrate AI agents and automated workflows into
+              products. I focus on software that is reliable, maintainable, and built to scale.
+            </p>
+          </div>
         </div>
 
         {/* Core Technologies */}
-        <div>
+        <div id="technologies" className="scroll-mt-24">
           <h3 className="text-sm font-semibold mb-3 text-foreground">Core Technologies</h3>
           <div className="flex flex-wrap gap-2">
             {skills.map((skill) => (
@@ -76,13 +96,15 @@ export function Hero() {
             <Mail className="h-4 w-4" />
             Email Me
           </Button>
-          <Button variant="outline" className="rounded-full gap-2 px-6 shadow-sm hover:shadow-md transition-all border-dashed">
-            <FileText className="h-4 w-4" />
-            Resume
+          <Button asChild variant="outline" className="cursor-pointer rounded-full gap-2 px-6 shadow-sm hover:shadow-md transition-all border-dashed">
+            <a href="/Olabode_Micheal_Ayomikun_Resume.pdf" target="_blank" rel="noopener noreferrer">
+              <FileText className="h-4 w-4" aria-hidden="true" />
+              Resume
+            </a>
           </Button>
         </div>
 
-        <div className="pt-4">
+        <div id="connect" className="scroll-mt-24 pt-4">
           <h3 className="text-base font-bold mb-4">Connect</h3>
           <div className="flex flex-wrap gap-4">
             <a href="https://github.com/luli-tech" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">

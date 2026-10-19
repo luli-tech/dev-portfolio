@@ -3,7 +3,51 @@
 
 @custom-variant dark (&:is(.dark *));
 
+::view-transition {
+  pointer-events: none;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 2;
+  animation: var(--theme-swipe-animation) 450ms ease-in-out both;
+}
+
+@keyframes theme-swipe-down {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes theme-swipe-up {
+  from {
+    clip-path: inset(100% 0 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-new(root) {
+    animation: none;
+  }
+}
+
 :root {
+  --theme-swipe-animation: theme-swipe-up;
   /* Ultra-clean fynix.dev inspired minimal light mode */
   --background: oklch(0.98 0 0);
   --foreground: oklch(0.12 0 0);
@@ -28,6 +72,7 @@
 }
 
 .dark {
+  --theme-swipe-animation: theme-swipe-down;
   /* Ultra-clean fynix.dev inspired minimal dark mode */
   --background: oklch(0.08 0 0);
   --foreground: oklch(0.92 0 0);
