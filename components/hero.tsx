@@ -1,5 +1,6 @@
 import { Github, Linkedin, Mail, FileText, Twitter } from "lucide-react";
 import Image from "next/image";
+import portrait from "@/public/portrait.webp";
 import { Button } from "@/components/ui/button";
 import { Typewriter } from "./typewriter";
 
@@ -24,11 +25,12 @@ export function Hero() {
   return (
     <section id="home" className="grid scroll-mt-24 gap-6 pt-8 pb-8 sm:flow-root sm:pt-12">
       <Image
-        src="/fav.ico"
+        src={portrait}
         alt="Olabode Micheal Ayomikun"
         width={288}
         height={384}
         priority
+        placeholder="blur"
         className="hidden h-auto rounded-2xl border border-border shadow-sm sm:block sm:float-right sm:mt-24 sm:mb-6 sm:ml-8 sm:w-56 xl:w-72"
       />
       <div className="contents sm:block sm:space-y-6">
@@ -53,11 +55,12 @@ export function Hero() {
         {/* About Me — inline under typewriter */}
         <div id="about" className="flow-root scroll-mt-24 text-sm md:text-base leading-relaxed text-muted-foreground sm:block">
           <Image
-            src="/fav.ico"
+            src={portrait}
             alt="Olabode Micheal Ayomikun"
             width={288}
             height={384}
             priority
+            placeholder="blur"
             className="float-right ml-4 block w-[48%] max-w-56 h-auto rounded-2xl border border-border shadow-sm sm:hidden"
           />
           <div className="space-y-4">

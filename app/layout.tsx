@@ -25,9 +25,6 @@ const pacifico = Pacifico({
 export const metadata: Metadata = {
   title: "Luli-Tech | Software Engineer",
   description: "Software engineer building software that moves the needle.",
-  icons: {
-    icon: "fav.ico",
-  },
 };
 
 export default function RootLayout({
